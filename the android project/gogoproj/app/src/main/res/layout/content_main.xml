@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="comp4932.gogoproj.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <ImageView
+        android:adjustViewBounds="true"
+        android:layout_width="500px"
+        android:layout_height="500px"
+        android:scaleType="center"
+        android:id="@+id/left"
+        android:background="@drawable/eric"
+        android:layout_alignTop="@+id/a"
+        android:layout_alignParentStart="true" />
+    <ImageView
+        android:background="@drawable/lizard"
+        android:adjustViewBounds="true"
+        android:scaleType="center"
+        android:layout_width="500px"
+        android:layout_height="500px"
+        android:id="@+id/right"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <comp4932.gogoproj.MaskView
+        android:id="@+id/a"
+        android:layout_width="500px"
+        android:layout_height="500px"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+    <comp4932.gogoproj.MaskView
+        android:id="@+id/b"
+        android:layout_width="500px"
+        android:layout_height="500px"
+        android:layout_alignTop="@+id/undoline"
+        android:layout_alignStart="@+id/right" />
+
+    <Button
+        android:id="@+id/buttonLoadPictureL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/left"
+        android:text="Load Image"
+        android:onClick="LoadImage"
+        android:layout_gravity="center"></Button>
+    <Button
+        android:id="@+id/buttonLoadPictureR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Load Image"
+        android:onClick="LoadImage"
+        android:layout_gravity="center"
+        android:layout_alignTop="@+id/buttonLoadPictureL"
+        android:layout_alignStart="@+id/right"></Button>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Undo Line"
+        android:id="@+id/undoline"
+        android:onClick="undoLastLine"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <SeekBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:id="@+id/seekBar"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="48dp"
+        android:layout_alignTop="@+id/buttonLoadPictureR"
+        android:layout_alignStart="@+id/frameNum"
+        android:layout_toStartOf="@+id/buttonLoadPictureR" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Morph"
+        android:id="@+id/morph"
+        android:onClick="theWholeMorph"
+        android:layout_above="@+id/buttonLoadPictureR"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/frameNum"
+        android:text="#"
+        android:selectAllOnFocus="true"
+        android:layout_below="@+id/undoline"
+        android:layout_marginTop="96dp"
+        android:layout_toEndOf="@+id/left" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play"
+        android:id="@+id/playButton"
+        android:onClick="play"
+        android:layout_alignBottom="@+id/seekBar"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>
